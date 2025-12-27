@@ -39,7 +39,28 @@
 ### Step 12: 
   Stop
 # Program:
+```
+#include <stdio.h>
+void swapr(int *x, int *y) {
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main() {
+    int a = 10, b = 20;
+    printf("Before swapr(): a = %d, b = %d\n", a, b);
+    swapr(&a, &b);
+    printf("After swapr(): a = %d, b = %d\n", a, b);
+
+    return 0;
+}
+
+```
 # Output:
+![EX-21 m5](https://github.com/user-attachments/assets/d1547110-9a29-49ea-8266-0eece11ba7a3)
+
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -77,7 +98,34 @@
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+int fibo(int x) {
+    if (x == 0 || x == 1)
+        return x;
+    else
+        return fibo(x - 1) + fibo(x - 2);
+}
+
+int main() {
+    int n, i;
+    scanf("%d", &n);
+    if (n <= 0) {
+        printf("Please enter a positive integer.\n");
+        return 0;
+    }
+    printf("Fibonacci series of %d terms:\n", n);
+    for (i = 0; i < n; i++) {
+        printf("%d ", fibo(i));
+    }
+
+    return 0;
+}
+
+```
 # Output:
+![EX-22 m5](https://github.com/user-attachments/assets/5d5ac149-9b47-46e1-8d5f-775f45093521)
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -119,7 +167,33 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 12:
   Stop
 # Program:
+```
+#include <stdio.h>
+void printEvenOdd(int cur, int limit) {
+    if (cur > limit)
+        return;
+
+    if (cur == limit)
+        printf("%d", cur);
+    else
+        printf("%d, ", cur);
+
+    printEvenOdd(cur + 2, limit);
+}
+int main() {
+    int lowerLimit, upperLimit;
+    scanf("%d", &lowerLimit);
+    scanf("%d", &upperLimit);
+    printf("Numbers in the range %d to %d:\n", lowerLimit, upperLimit);
+    printEvenOdd(lowerLimit, upperLimit);
+
+    return 0;
+}
+
+```
 # Output:
+![EX-23 m5](https://github.com/user-attachments/assets/887be88c-aa39-41ef-9c21-96c2464375e7)
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -161,7 +235,36 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *ptr;
+    int n, i, sum = 0;
+    scanf("%d", &n);
+    if(n <= 0) {
+        printf("Invalid number.\n");
+        return 1;
+    }
+    ptr = calloc(n, sizeof(int));
+    if(ptr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+    for(i = 0; i < n; i++)
+        scanf("%d", &ptr[i]);
+    for(i = 0; i < n; i++)
+        sum += ptr[i];
+    printf("Sum = %d\n", sum);
+    free(ptr);
+    return 0;
+}
+
+```
 # Output:
+![EX-24 m5](https://github.com/user-attachments/assets/5750009c-619f-48a8-8d19-ee82faf55064)
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -197,6 +300,31 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+/* Function prototype */
+void displayArray(int *arr, int size);
+
+int main() {
+    int arr[5], i;
+    for(i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    displayArray(arr, 5);
+    return 0;
+}
+void displayArray(int *arr, int size) {
+    int i;
+    for(i = 0; i < size; i++) {
+        printf("%d ", *(arr + i)); // or arr[i]
+    }
+    printf("\n");
+}
+
+```
 # Output:
+![EX-25 m5](https://github.com/user-attachments/assets/3eec7eb5-de26-4c1a-82b2-9a340a4faa12)
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
